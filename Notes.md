@@ -1,6 +1,12 @@
 ## Random Variables and Density functions 
 ---
 
+*Random variables*
+- Bernaulli
+- Binomial
+- Poission
+- Gaussian
+
 *CDF (Cumulative Distribution Function)*
 
 * Used to represent continuous random variables and it is probability $\therefore$ CDF cannot be > than 1.
@@ -60,7 +66,47 @@ $$F_{X|A}(x)=Pr(X \leq x |A)$$
 
 $$E[X]=\int_{-\infty}^{\infty}x f_{X}(x)dx$$
 
-Average,mean,expectation,first moment can be used interchangeably
+Average,mean,expectation,first moment are the same thing
 
 ### Expected values of functions of RV:
-Replace x with the function
+Replace x with the function:
+
+$$E[g(x)]=\int_{-\infty}^{\infty}g(x) f_{X}(x)dx$$
+
+For discrete RV, it becomes :
+
+$$E[g(x)]=\Sigma_{k} g(x_{k})P_{X}(x_{k})$$
+
+![](table.PNG)
+
+*For $n^{th}$ moment, the x in integral changes to $x^n$*
+
+- The zeroth moment is simply the area under the PDF and must be one for any random variable. 
+-  The second moment is the mean-squared value
+
+---
+#### Central Moments
+Used to get accurate output when the signal is fluctuated by minor noise. Because of the same, randomness of signal cannot be characterized.
+
+$n^{th}$ central moment of a RV X :
+
+$$E[(X-\mu_{X}^{n})]=\int (x-\mu_{X})^n f_{X}(x)dx $$
+
+- With central moments, the mean is subtracted from the variable before the moment is taken in order to remove the bias in the higher moments due to the mean.
+-  the first central moment is $E[(X-\mu_{X})]=E[X]-\mu_{X}=0$. 
+
+Second central moment is hence the lowest central moment.(Variance)
+
+
+$$\sigma_{X}^{2}=E[(X-\mu_{X})^2]=E[X^{2}-\mu_{X}^{2}]$$
+
+
+Standard Deviation:
+$ \sigma_{X}=\sqrt{E[(X-\mu_{X})^2]}$
+
+Variance and the standard deviation serve as a measure of the width of the PDF of a random variable.
+
+*The third central moment is known as the skewness and is a measure of the symmetry of the PDF about the mean.* 
+
+*The fourth central moment is called the kurtosis and is a measure of the peakedness of a random variable near
+the mean.*
