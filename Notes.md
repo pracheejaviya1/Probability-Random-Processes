@@ -48,6 +48,19 @@ To calculate the above, it has to be converted into a standard form : Q function
 $$Pr(X \leq x) = \int_{\frac{x-m}{\sigma}}^{\infty} \frac{1}{\sqrt{2\pi}}exp(-\frac{t^2}{2})dt$$
 
 $$=Q(\frac{x-m}{\sigma})$$
+---
+### Conditional distribution
 
+A random variable X conditioned on event A having occurred :
+$$F_{X|A}(x)=Pr(X \leq x |A)$$
 
- 
+**Properties simillar to CDF**
+
+### Expectation of RV
+
+$$E[X]=\int_{-\infty}^{\infty}x f_{X}(x)dx$$
+
+Average,mean,expectation,first moment can be used interchangeably
+
+### Expected values of functions of RV:
+Replace x with the function
