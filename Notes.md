@@ -11,7 +11,7 @@
 
 * Used to represent continuous random variables and it is probability $\therefore$ CDF cannot be > than 1.
 
-$$F_{X}(x)=Pr(X \leq x)$$
+$$ F_{X}(x)=Pr(X \leq x) $$
 
 * $F_{X}({- \infty})= 0$ and $F_{X}({\infty})=1$
 *  x1 < x2 , $F_{X}(x_{1}) \leq F_{X}(x_{2})$
