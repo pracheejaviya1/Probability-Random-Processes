@@ -331,24 +331,30 @@ $$= 1-e^{-2}$$
 
 \newpage
 \item 
-We have a Random variable X which has a uniform distribution over the interval (-a,a) for some positive constant a.
+We have a Random variable X which has a uniform distribution over the interval (-a,a) for some positive constant a. Its PDF will be, 
 \begin{align*}
-E[X]&=\int_{-a}^{a} x \left( \frac{1}{a} \right) dx\\
-&=\frac{1}{a}[0]\\
+f_{X}(x)&=\frac{1}{b-a}\\
+&=\frac{1}{a-(-a)}\\
+&=\frac{1}{2a}
+\end{align*}
+Now,
+\begin{align*}
+E[X]&=\int_{-a}^{a} x \left( \frac{1}{2a} \right) dx\\
+&=\frac{1}{2a}[0]\\
 &=0
 \end{align*}
 To find the variance we will calculate $E[X^2]$,
 \begin{align*}
-E[X^2]&=\int_{-a}^{a} x^2 \left( \frac{1}{a} \right) dx\\
-&=\frac{1}{3a}x^3\Big|_{-a}^{a} \\
-\sigma^2 &=\frac{2}{3}a^2
+E[X^2]&=\int_{-a}^{a} x^2 \left( \frac{1}{2a} \right) dx\\
+&=\frac{1}{6a}x^3\Big|_{-a}^{a} \\
+\sigma^2 &=\frac{1}{3}a^2
 \end{align*}
 
 
 
  For coefficient of skewness
 \begin{align*}
-E[X^3] &=\int_{-a}^{a} x^3 \left( \frac{1}{a} \right) dx \\
+E[X^3] &=\int_{-a}^{a} x^3 \left( \frac{1}{2a} \right) dx \\
 &=0
 \end{align*}
 \begin{align*}
@@ -357,14 +363,14 @@ c_{s}&=\frac{E[X^3]}{\sigma^3}\\
 \end{align*}
  Now for coefficient of kurtosis
 \begin{align*}
-E[X^4]&=\int_{-a}^{a}\frac{x^4}{a}dx\\
-&=\frac{1}{5a}x^5\Big|_{-a}^{a} \\
-&=\frac{2}{5}a^4
+E[X^4]&=\int_{-a}^{a}\frac{x^4}{2a}dx\\
+&=\frac{1}{10a}x^5\Big|_{-a}^{a} \\
+&=\frac{1}{5}a^4
 \end{align*}
 \begin{align*}
 c_{s}&=\frac{E[X^4]}{\sigma^4}\\
-&=\frac{\frac{2}{5}a^4}{ \left( \frac{2}{3}a^2 \right)^2 }\\
-&=\frac{9}{10}
+&=\frac{\frac{1}{5}a^4}{ \left( \frac{1}{3}a^2 \right)^2 }\\
+&=\frac{9}{5}
 \end{align*}
 
 \vspace{2mm} 
