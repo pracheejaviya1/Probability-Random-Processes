@@ -70,21 +70,20 @@
 Nuclear Energy, by witnessing the gradual depletion of natural resources, "probably" will become the next primary source of energy in the near future.
 Compared to other fuels, nuclear power costs relatively low (eradicating construction costs) and the likelihood of an accident occurring is also low, but when it does, it makes a huge dent in economic and environmental fabric ;a loss costing in billions(Fukushima Daiichi 11 Mar. 2011). The anomalies of the reaction are unpredictable and random which makes it difficult to track them.In today’s global energy environment, nuclear power plant managers need to consider many dimensions of risk in addition to nuclear safety-related risk.  In general we tend to overestimate any risk relating to rare, fearsome accidents. The purpose of this report is to provide an integrated framework for risk prediction as a tool to enhance the accuracy of predicting a major nuclear accident as well as risks associated with them, including core damage frequency. The reactions will be studied thoroughly in order to determine the output which contribute to a nuclear accident and what is the probability of an accident happening due to it . Things can go wrong in ways that we can not even foresee, we must collect data on all potential incidents that lead to the wrongdoing of a nuclear reactor thus creating a probabilistic model that provides a detailed risk analysis. Besides, who wouldn't want to get accurate answers to  universe's randomness?
 
-\subsection{Problem Statement/ Case Study}
+\subsection{Case Study}
+We aim to analyse the data of the the nuclear accident happened in Fukushima Daiichi; March, 2011. Using the data we will determine the probab
 
 %panth tu lakhje aa
 
-\begin{itemize}
-    \item Problem identification, Identify  performance metric for the selected project.
-\begin{figure}
-    \centering
-   \includegraphics[scale=0.5]{Metric.jpg}
-    \caption{Performance Metric}
-    \label{fig:my_label}
-\end{figure}
-
-
-\end{itemize}
+% \begin{itemize}
+%     \item Problem identification, Identify  performance metric for the selected project.
+% \begin{figure}
+%     \centering
+%   \includegraphics[scale=0.5]{Metric.jpg}
+%     \caption{Performance Metric}
+%     \label{fig:my_label}
+% \end{figure}
+% \end{itemize}
 
 \section{Data Acquisition }
 
@@ -103,6 +102,55 @@ Compared to other fuels, nuclear power costs relatively low (eradicating constru
 \item Include Block/State diagram (If Any)
 %\item Explain the probabilistic model used to solve the problem
 \item Include the micro/macro level analysis (Identify different scenarios, assumptions, modeling prerequisites etc)
+ \begin{itemize}
+     \item Application of Conditional Probability to reliability factor :What
+follows is a determination of the probability of system failure by the
+application of the conditional probability theorem. Figure below is the reference system. It consists of five components arranged on three "success paths. " So long as the components on at least one success path are operating, the system has not failed.\\ \\
+    Probability of system failure can be written as : \\\vspace{10mm}
+    \hspace{50mm}P(S)=P(S/A)P(A) + P(S/$\Bar{A}$)P($\Bar{A}$)\hspace{30mm} (1)\\
+    where\\\vspace{2mm}
+    \hspace{15mm}P(S)=Probability of system failure\\\vspace{2mm}
+    \hspace{15mm}P(A)=Probability that component A is working (not failed)\\\vspace{2mm}
+    \hspace{15mm}P(S/A)=Probability of system failure, given component A has not failed\\\vspace{2mm}
+    Probability that a component is working is determined by its failure density function. For now derivation is beyond our scope.We will assume the following equation and move ahead. 
+    $$P(\Bar{A})=\int_{0}^{t}f_{A}(t)dt \hspace{30mm} (2)$$
+    % \hspace{80mm} (2) \\
+    and probability of no failure is \\ \vspace{1mm}
+    \hspace{15mm}P($\bar{A}$)=1-P(A)\hspace{30mm} (3)\\
+    where,\\ \vspace{2mm}
+    \hspace{15mm}$f_{A}(t)$ = failure density function for component A\\
+    P(S/A) and P(S/$\bar{A}$) can be calculated by  a stepwise application of the conditional probability theorem to the system shown in Figure.\\ \\
+    \textbf{If A has not failed, the system can fail only if components B, C, and D or D or E also fail.}\\\vspace{5mm}
+    \hspace{15mm}P(S/A) = P(S/A, B) P(B) + P(S/A,$\Bar{B}$) P($\Bar{B}$)\hspace{30mm} (4) \\
+    Since the system will not fail if both A and B are operating then \\\vspace{5mm}
+\hspace{15mm}P(S/A, B) = 0 \\ \vspace{5mm}
+\hspace{15mm}$\therefore$  P(S/A) =  P(S/A,$\Bar{B}$) P($\Bar{B}$) \\
+The probability of system failure given that B has failed is evaluated
+as:\\ \vspace{5mm}
+\hspace{15mm}P(S/A, B) = P(S/A, $\Bar{B}$, C) P(C) + P(S/A, $\Bar{B}$ , $\Bar{C}$) P( $\Bar{C}$).\hspace{30mm}(5) \\ 
+The first term on the right is zero since the system cannot fail if C
+has not failed. Equation (5) becomes \\ \vspace{5mm}
+\hspace{15mm}P(S/A, $\Bar{B}$) =  P(S/A, $\Bar{B}$ , $\Bar{C}$) P( $\Bar{C}$)\\
+The probability of system failure given that C has failed is evaluated
+as:\\ \vspace{5mm}
+\hspace{15mm}P(S/A,$\Bar{B}$,$\Bar{B}$) = P(S/A,$\Bar{B}$,$\Bar{B}$,D) P(D) + P(S/A,$\Bar{B}$,$\Bar{C}$,$\Bar{D}$) P($\Bar{B}$). \hspace{30mm} (6) \\
+We know if that B,C,D fails then the entire system fails. \\
+\\ \vspace{2mm}
+\hspace{15mm}$\therefore$ P(S/A,$\Bar{B}$,$\Bar{C}$,$\Bar{D}$)=1 \\
+Similarly , calculating for E,\\ \vspace{5mm}
+\hspace{15mm}\textbf{P(S/A) = [1-P(E)P(D) ] [1-P(C) ] [1-P(B)]}\\
+
+P(S/$\Bar{A}$) can be calculated in the above fashion and it boils down to : \\ \vspace{5mm}
+\hspace{15mm}\textbf{P(S/$\Bar{A}$) - [ l-P(E) P(D)] [l-P(C)]}\\\vspace{5mm}
+System failure probability is thus given by :\\\vspace{2mm}
+\hspace{20mm} \textbf{P(S) = [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]}
+
+
+
+    
+    
+   
+ \end{itemize}
 \end{itemize}
 
 \section{Pseudo Code/ Algorithm }
