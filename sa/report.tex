@@ -57,13 +57,13 @@
 \section{Introduction}
 \subsection{Background}
 \begin{itemize}
-    \item The whole of this paper is devoted to calculating the risk of a major nuclear accident.  By this we mean a failure initiating core meltdown. The cost of such accidents amounts to €1 per MWh generated. Setting aside the back of an envelope, which lends itself to quick, simple calculations, the paper gives us an insight into the accidents, from both a theoretical and an empirical standpoint. The study reports a probability of a core melt of $5\times10^{-5}$ per reactor year, in other words, a 0.00005 chance of an accident on a reactor operating for one year. (cit 1) Due to the confidentiality of data and limited resources, we would study one nuclear plant operating for 100,000 reactor years, rather than a fleet of 100000 reactors,operating for 1 year(The frequency remains unchanged).
+    \item The whole of this paper is devoted to calculating the risk of a major nuclear accident.  By this we mean a failure initiating core meltdown. The cost of such accidents amounts to €1 per MWh generated. Setting aside the back of an envelope, which lends itself to quick, simple calculations, the paper gives us an insight into the accidents, from both a theoretical and an empirical standpoint. The study reports a probability of a core melt of $5\times10^{-5}$ per reactor year, in other words, a 0.00005 chance of an accident on a reactor operating for one year. (cit 1) Due to the confidentiality of data and limited resources, we would study one nuclear plant operating for 100,000 reactor years, rather than a fleet of 100000 reactors,operating for 1 year(The frequency remains unchanged).The accident in Fukushima was caused by a tsunami (estimated to be 45 feet tall), which was due to the Tohoku earthquake on March 11; a pair of natural disasters that shut down the power and cooling of three nuclear reactors, leading to three nuclear meltdowns, and hydrogen air explosions. We will individually calculate the probabilities of above events and model them to analyse the risk of next possible nuclear accident in Japan.
 
 
     \item
     The main purpose of probabilistic safety assessments is not to estimate the probability of an accident on a specific plant or reactor, but rather to detect exactly what may go wrong, to identify the weakest links in the process and to understand the faults which most contribute to the risk of an accident. We will proceed methodically, starting from conditional probability, taking one branch of the tree and studying it deeper, calculating its probability and see how it affects the total probability. For example, Pr(release|melt|cooling system failure|loss of emergency power source|protective wall round plant breached by wave|7.0 magnitude quake). All the possible sequences form an ‘event’ tree, with a series of forks, each branch being assigned a probability.
 
-    \item Inside a nuclear reactor, slow thermal neutrons are bombarded inside the Uranium-235 core which react with the fuel and the Uranium present inside the fuel captures this slow moving electron and goes into an excited state and finally decays into residual, following a chain reaction. But what is the probability that this slow moving neutron reacts with the fuel. This is decided by a physical quantity which is called cross-section measured in barns(b). This quantity defines that with what amount of cross-section does this slow moving neutron reacts with and higher the cross-section, higher the probability of the reaction. This cross-section is measured w.r.t Incident Energy of slow moving neutron. After doing some mathematics and some quantum mechanical derivations, we get that cross-section formula turns out to be $\sigma = \pi \Bar{\lambda}^2 \frac{\Gamma^2}{(E - E_r)^2 + (\frac{\Gamma}{2})^2}$ which is known as a Breit-Wigner Distribution which is a modified form of Lorentz distribution. We can see that there is a peak in the distribution, which corresponds to $E_r$ which is called the Resonance Energy. At this peak we can see that cross-section is maximized which shows that if an incident Neutron is bombarded at this energy, it has a higher chance of reacting with the Nuclei.
+    \item Inside a nuclear reactor, slow thermal neutrons are bombarded inside the Uranium-235 core which react with the fuel and the Uranium present inside the fuel captures this slow moving electron and goes into an excited state and finally decays into residual, following a chain reaction. But what is the probability that this slow moving neutron reacts with the fuel? This is decided by a physical quantity which is called cross-section measured in barns(b). This quantity defines that with what amount of cross-section does this slow moving neutron reacts with and higher the cross-section, higher the probability of the reaction. This cross-section is measured w.r.t Incident Energy of slow moving neutron. After doing some mathematics and some quantum mechanical derivations, we get that cross-section formula turns out to be $\sigma = \pi \Bar{\lambda}^2 \frac{\Gamma^2}{(E - E_r)^2 + (\frac{\Gamma}{2})^2}$ which is known as a Breit-Wigner Distribution which is a modified form of Lorentz distribution. We can see that there is a peak in the distribution, which corresponds to $E_r$ which is called the Resonance Energy. At this peak we can see that cross-section is maximized which shows that if an incident Neutron is bombarded at this energy, it has a higher chance of reacting with the Nuclei.
 \end{itemize}
 
 \subsection{Motivation}
@@ -141,12 +141,37 @@ Similarly , calculating for E,\\ \vspace{5mm}
 \hspace{15mm}\textbf{P(S/A) = [1-P(E)P(D) ] [1-P(C) ] [1-P(B)]}\\
 
 P(S/$\Bar{A}$) can be calculated in the above fashion and it boils down to : \\ \vspace{5mm}
-\hspace{15mm}\textbf{P(S/$\Bar{A}$) - [ l-P(E) P(D)] [l-P(C)]}\\\vspace{5mm}
+\hspace{15mm}\textbf{P(S/$\Bar{A}$) - [ 1-P(E) P(D)] [l-P(C)]}\\\vspace{5mm}
 System failure probability is thus given by :\\\vspace{2mm}
-\hspace{20mm} \textbf{P(S) = [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]}
+\hspace{15mm} \textbf{P(S) = [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]}\\
+\\
+DATA TO BE ADDED YET ACCORDING TO TIME PERIOD.
+    \newpage
+    \item Distribution of tsunami events triggered by seismic events at a global scale:\\ 
+    To describe the earthquake sizes in the target region,a truncated Gutenberg–Richter relationship is adopted:(cite) %https://www.frontiersin.org/articles/10.3389/fbuil.2016.00025/full#B31\\
+    $$G(M)=\frac{1-10^{-b(M-M_{min})}}{1-10^{-b(M_{max}-M_{min})}}$$
+    where Mmin and Mmax are the minimum and maximum moment magnitudes, respectively.
+    For the simulation, it is convenient to convert the continuous distribution of magnitudes into a discrete set of values ($M_{min}$, …, Mi, …, $M_{max}$), assuming that they are the only possible magnitudes; such probabilities are computed as follows:\\
+    \begin{center}
+        P($M_{i}$)=G($M_{i}$+0.5$ \dot \Delta M$)-G($M_{i}$ - 0.5$ \dot \Delta M$)
+    \end{center}
+    
+where $\Delta M$ is the discretization interval. 
+For the analyses, $M_{min}$ and $M_{max}$ are set to 7.375 and 9.125, and a discretization interval of 0.25 is adopted. This means that seven central magnitude values, i.e., 7.5, 7.75, 8.0, 8.25, 8.5, 8.75, and 9.0, are considered to calculate the corresponding conditional probabilities as in the above equation. The minimum magnitude value is chosen, since small-to-moderate earthquakes rarely generate significant tsunamis, and their contributions to the tsunami hazard are negligible. For the Tohoku case study, a b-value equal to 0.9 is adopted(cite2)\\ %https://www.frontiersin.org/articles/10.3389/fbuil.2016.00025/full. 
+\\ %https://www3.nhk.or.jp/nhkworld/en/news/backstories/169/
+% https://earthquake.usgs.gov/earthquakes/search/
+Once the magnitude interval is selected and the major source area containing all possible rupture scenarios is defined, the mean annual rate of occurrence of earthquakes with magnitudes greater than or equal to 7.375 falling in that area can be calculated. Using G-R model with Poisson process for total area,\\
+%https://www3.nhk.or.jp/nhkworld/en/news/backstories/169/
+Pr(Occurrence of earthquake($>$6.0 $M_{w}$) in Fukushima(70 mile radius) in one) =$\frac{31}{15,798}$  %https://earthquake.usgs.gov/earthquakes/search/  
+%https://en.wikipedia.org/wiki/List_of_earthquakes_in_2019
+\\
+\\
+%https://www.frontiersin.org/files/Articles/222571/fbuil-02-00025-HTML/image_m/fbuil-02-00025-g003.jpg   -- add D graph
 
-
-
+ \item Radiation leak :\\
+ Following a core melt, two possibilities are considered:
+either an 8-in-10 chance that radiation will remain confined inside the reactor
+containment; or a 2-in-10 chance that part of the radiation will be released into the environment.%http://www.cerna.mines-paristech.fr/Donnees/data08/810-I3WP_13-ME-02_2.pdf
     
     
    
