@@ -5,6 +5,8 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
+plt.style.use('ggplot')
+
 
 def ievsig() -> None:
     df = pd.read_csv('plot_final.csv')
