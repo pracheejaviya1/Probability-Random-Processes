@@ -73,17 +73,15 @@ Compared to other fuels, nuclear power costs relatively low (eradicating constru
 \subsection{Case Study}
 We aim to analyse the data of the the nuclear accident happened in Fukushima Daiichi; March, 2011. Using the data we will determine the probab
 
-%panth tu lakhje aa
 
-% \begin{itemize}
-%     \item Problem identification, Identify  performance metric for the selected project.
-% \begin{figure}
-%     \centering
-%   \includegraphics[scale=0.5]{Metric.jpg}
-%     \caption{Performance Metric}
-%     \label{fig:my_label}
-% \end{figure}
-% \end{itemize}
+%panth tu lakhje aa
+\begin{figure}
+    \centering
+  \includegraphics[scale=0.5]{Metric.jpg}
+    \caption{Performance Metric}
+    \label{fig:my_label}
+\end{figure}
+
 
 \section{Data Acquisition }
 
@@ -138,14 +136,29 @@ We know if that B,C,D fails then the entire system fails. \\
 \\ \vspace{2mm}
 \hspace{15mm}$\therefore$ P(S/A,$\Bar{B}$,$\Bar{C}$,$\Bar{D}$)=1 \\
 Similarly , calculating for E,\\ \vspace{5mm}
-\hspace{15mm}\textbf{P(S/A) = [1-P(E)P(D) ] [1-P(C) ] [1-P(B)]}\\
+\hspace{15mm}P(S/A) = [1-P(E)P(D) ] [1-P(C) ] [1-P(B)]\\
 
 P(S/$\Bar{A}$) can be calculated in the above fashion and it boils down to : \\ \vspace{5mm}
-\hspace{15mm}\textbf{P(S/$\Bar{A}$) - [ 1-P(E) P(D)] [l-P(C)]}\\\vspace{5mm}
+\hspace{15mm}P(S/$\Bar{A}$) - [ 1-P(E) P(D)] [l-P(C)]\\\vspace{5mm}
 System failure probability is thus given by :\\\vspace{2mm}
 \hspace{15mm} \textbf{P(S) = [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]}\\
 \\
-DATA TO BE ADDED YET ACCORDING TO TIME PERIOD.
+$$
+\begin{*align}
+
+\text{P(S) & = [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]}\\
+            &= [1-(0.139 \times 10^{-3})(0.699 \times 10^{-2})][1-(0.139 \times 10^{-1})][1-(0.349 \times 10^{-3})(0.139 \times 10^{-1})]\\
+            &=0.99999902839 \times 0.9861 \times 0.9999951489
+\end{*align}
+$$
+
+
+    
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{System.jpg}
+    \label{fig:my_label}
+\end{figure}
     \newpage
     \item Distribution of tsunami events triggered by seismic events at a global scale:\\ 
     To describe the earthquake sizes in the target region,a truncated Gutenberg–Richter relationship is adopted:(cite) %https://www.frontiersin.org/articles/10.3389/fbuil.2016.00025/full#B31\\
