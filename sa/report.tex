@@ -182,9 +182,57 @@ Pr(Occurrence of earthquake($>$6.0 $M_{w}$) in Fukushima(70 mile radius) in one)
 %https://www.frontiersin.org/files/Articles/222571/fbuil-02-00025-HTML/image_m/fbuil-02-00025-g003.jpg   -- add D graph
 
  \item Radiation leak :\\
- Following a core melt, two possibilities are considered:
-either an 8-in-10 chance that radiation will remain confined inside the reactor
-containment; or a 2-in-10 chance that part of the radiation will be released into the environment.%http://www.cerna.mines-paristech.fr/Donnees/data08/810-I3WP_13-ME-02_2.pdf
+    There are three kinds of leak possible from a nuclear reactor, 1) Fast Neutron Leakage, 2) Thermal Neutron Leakage, 3) Gamma Ray Leakage which are equally hazardous. There are many factors that contribute to these leakage like Migration Length, Geometric Bulking, Incident Energy of Neutrons etc. 
+    
+    \begin{itemize}
+        \item Fast Neutron Leakage :\\
+            Nuclear Fission process is a Nuclear Chain Reaction. After the Fission is completed, the end products obtained are fast moving neutrons with moderator nuclei which participates further in chain nuclear reaction. But these Fast Moving Neutrons are highly energetic and must be slowed down using a moderator like water or heavy water which absorbs some amount of energy and bring the neutron in the Thermal Range.\\
+            \\
+            But during this process of slowing down these fast moving neutrons leak out from the reactor boundaries and escape in the form of Neutron Radiation. The probability of Fast Neutron leakage is termed as Fast Non-Leakage Probability which is calculated as,
+            $$P_f = \frac{n_FL}{n_F}$$
+            where $n_l$ = Number of that do not leak during the slow down process and $n$ = Total number of neutrons produced during fission.\\ 
+            \\
+            The Fast Non-Leakage Probability can be derived from Fermi Age Theory, which is a Stochastic Process, the probability that a neutron will remain in a core and slow down to become a thermal neutron without being lost by fast leakage, is given by the equation,
+            $$P_f = e^{-\tau B^2} = \frac{1}{1 + \tau B^2}$$
+            
+            where, $\tau$ is Fermi Age of the neutron and B is geometric bulking factor which depends on the size and shape of reactor core and is higher for small cores and low for smaller cores. Hence it is obvious from this that fast neutron leakage is higher for smaller cores.\\
+            
+        \item Thermal Neutron Leakage :\\
+            During Neutron Diffusion process, some thermal neutrons are leak out of the reactor core boundaries before they are absorbed by the moderator. Hence the Thermal Non-Leakage Probability is calculated as,
+            $$P_t = \frac{n_TL}{n_T}$$
+            where $n_TL$ = Total number of thermal neutrons leaked during diffusion process and $n_T$ = Total number of neutrons that reach thermal energy.\\
+            \\
+            The only parameter that influences this Non-Leakage probability is the moderator temperature. From Neutron Thermal Diffusion Theory it can be derived that a neutron will remain in the core is given by,
+            $$P_t = \frac{1}{1 + L_d^2B^2}$$
+            where $L_d$ is the length of diffusion which is basically the thickness of Moderator and B is the geometric bulking factor.\\
+            
+        \item Total Non-Leakage Probability :\\
+            Fast Neutron Non-Leakage Probability ($P_f$) and Thermal Neutron Non-Leakage Probability ($P_t$) can be combined as one single term which shows us the total Non-Leakage Probability of Neutrons ($P_{NL}$) from the reactor core and can be expressed as,
+            $$P_{NL} = \frac{1}{(1 + L_d^2B^2)}\cdot \frac{1}{(1 + \tau B^2)} $$
+            $$P_{NL} = \frac{1}{1 + (\tau + L_d^2)B^2 + \tau L_d^2B^4}$$\\
+            
+            For Large reactors we can re-write $\tau + L_d^2$ as $M^2$ where M is the migration length. The term $B^4$ can be neglected for large reactors as its value is very small for large reactors and hence we can write the total Non-Leakage Probability of Neutrons as,
+            $$P_{NL} = \frac{1}{1 + M^2B^2}$$
+            
+            Since both the factors $P_f$ and $P_t$ are dependent on the moderator temperature, the total Non-Leakage Probability is dependent on Moderator Temperature too and is sensitive to the changes in Moderator Temperature. Increase in Moderator Temperature causes an decrease in $P_{NL}$ which means more neutrons leak out of the reactor.\\
+            \\
+            
+        \item Gamma Ray Probability :\\
+            During the process of Thermalization of fast moving neutrons, neutrons may collide with moderator as well as fuel nuclei. Sometimes the reactor fuel might exhibit Resonance Behaviour between fast and thermal neutron range. During the process of Thermalization there is a chance that these intermediate energy neutrons might get Captured by the nuclei and the nuclei might go into an excited state.\\
+            \\
+            The probability of the neutron to escape this resonance is termed as Resonance Escape Probability which has an average value of around 0.75.\\
+            \\
+            Whenever the neutron is captured by the nuclei, the nuclei transmits to an excited state and comes back to normal state by emitting a Gamma Ray and a fast moving neutron. But these neutrons have a high chance of being captured at a specific Energy called Resonance Energy ($E_r$). If and incident neutron hits the nuclei with this energy then there is a high chance of nuclei undergoing Resonance.\\
+            \\
+            The chances of nuclei undergoing a Resonance is calculated in terms of cross-section. Cross-Section basically is the probability that when neutron and the nuclei are incident on each other. More the cross section, more is the probability of the nuclei to undergo resonance. Cross-Section is measured w.r.t to Incident energy of Neutron.\\
+            \\
+            Formula for Cross-Section w.r.t Incident Energy is,
+            $$\sigma = \pi \Bar{\lambda}^2 \frac{\Gamma^2}{(E - E_r)^2 + (\frac{\Gamma}{2})^2}$$
+            
+            where $\Gamma$ = $\frac{\bar{h}}{\tau}$,$\tau$ is the half-life of the nuclei, $\Bar{\lambda}$ is the wavelength of the incident neutron and $E_r$ is the Resonance Energy. As we can see that, at Resonance Energy, the cross-section is maximized. The equation obtained above is known as the Breit-Wigner Formula which is a derived form of Cauchy-Lorentz Distribution and is derived from Quantum Theory of Radioactivity and Fermi's Golden Rule.
+            
+                
+    \end{itemize}
     
     
    
