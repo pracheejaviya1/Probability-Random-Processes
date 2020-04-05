@@ -9,8 +9,6 @@ plt.style.use('ggplot')
 def main() -> None:
     X = np.array([0.4154, 0.2474, 0.1474, 0.0878, 0.0523, 0.0311, 0.01826])
 
-    width = 0.1
-
     fig, ax = plt.subplots(constrained_layout=True)
     x = np.arange(len(X))
     ax._res = ax.bar(x, height=X)
