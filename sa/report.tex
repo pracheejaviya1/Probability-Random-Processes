@@ -57,11 +57,11 @@
 \section{Introduction}
 \subsection{Background}
 \begin{itemize}
-    \item The whole of this paper is devoted to calculating the risk of a major nuclear accident.  By this we mean a failure initiating core meltdown. The cost of such accidents amounts to €1 per MWh generated. Setting aside the back of an envelope, which lends itself to quick, simple calculations, the paper gives us an insight into the accidents, from both a theoretical and an empirical standpoint. The study reports a probability of a core melt of $5\times10^{-5}$ per reactor year, in other words, a 0.00005 chance of an accident on a reactor operating for one year. (cit 1) Due to the confidentiality of data and limited resources, we would study one nuclear plant operating for 100,000 reactor years, rather than a fleet of 100000 reactors,operating for 1 year(The frequency remains unchanged).The accident in Fukushima was caused by a tsunami (estimated to be 45 feet tall), which was due to the Tohoku earthquake on March 11; a pair of natural disasters that shut down the power and cooling of three nuclear reactors, leading to three nuclear meltdowns, and hydrogen air explosions. We will individually calculate the probabilities of above events and model them to analyse the risk of next possible nuclear accident in Japan.
+    \item The whole of this paper is devoted to calculating the risk of a major nuclear accident.  By this we mean a failure initiating core meltdown. The cost of such accidents amounts to €1 per MWh generated. Setting aside the back of an envelope, which lends itself to quick, simple calculations, the paper gives us an insight into the accidents, from both a theoretical and an empirical standpoint. The study reports a probability of a core melt of $5\times10^{-5}$ per reactor year, in other words, a 0.00005 chance of an accident on a reactor operating for one year. Due to the confidentiality of data and limited resources, we would study one nuclear plant operating for 100,000 reactor years, rather than a fleet of 100000 reactors,operating for 1 year(The frequency remains unchanged)\cite{cite1}.The accident in Fukushima was caused by a tsunami (estimated to be 45 feet tall), which was due to the Tohoku earthquake on March 11; a pair of natural disasters that shut down the power and cooling of three nuclear reactors, leading to three nuclear meltdowns, and hydrogen air explosions. We will individually calculate the probabilities of above events and model them to analyse the risk of next possible nuclear accident.
 
 
     \item
-    The main purpose of probabilistic safety assessments is not to estimate the probability of an accident on a specific plant or reactor, but rather to detect exactly what may go wrong, to identify the weakest links in the process and to understand the faults which most contribute to the risk of an accident. We will proceed methodically, starting from conditional probability, taking one branch of the tree and studying it deeper, calculating its probability and see how it affects the total probability. For example, Pr(release|melt|cooling system failure|loss of emergency power source|protective wall round plant breached by wave|7.0 magnitude quake). All the possible sequences form an ‘event’ tree, with a series of forks, each branch being assigned a probability.
+    The main purpose of probabilistic safety assessments is not to estimate the probability of an accident on a specific plant or reactor, but rather to detect exactly what may go wrong, to identify the weakest links in the process and to understand the faults which most contribute to the risk of an accident. We will proceed methodically, starting from conditional probability, taking one branch of the tree and studying it deeper, calculating its probability and see how it affects the total probability. For example, Pr(release|melt|cooling system failure|loss of emergency power source|protective wall round plant breached by wave|7.0 magnitude quake)\cite{cite1}. All the possible sequences form an ‘event’ tree, with a series of forks, each branch being assigned a probability.
 
     \item Inside a nuclear reactor, slow thermal neutrons are bombarded inside the Uranium-235 core which react with the fuel and the Uranium present inside the fuel captures this slow moving electron and goes into an excited state and finally decays into residual, following a chain reaction. But what is the probability that this slow moving neutron reacts with the fuel? This is decided by a physical quantity which is called cross-section measured in barns(b). This quantity defines that with what amount of cross-section does this slow moving neutron reacts with and higher the cross-section, higher the probability of the reaction. This cross-section is measured w.r.t Incident Energy of slow moving neutron. After doing some mathematics and some quantum mechanical derivations, we get that cross-section formula turns out to be $\sigma = \pi \Bar{\lambda}^2 \frac{\Gamma^2}{(E - E_r)^2 + (\frac{\Gamma}{2})^2}$ which is known as a Breit-Wigner Distribution which is a modified form of Lorentz distribution. We can see that there is a peak in the distribution, which corresponds to $E_r$ which is called the Resonance Energy. At this peak we can see that cross-section is maximized which shows that if an incident Neutron is bombarded at this energy, it has a higher chance of reacting with the Nuclei.
 \end{itemize}
@@ -72,9 +72,6 @@ Compared to other fuels, nuclear power costs relatively low (eradicating constru
 
 \subsection{Case Study}
 We aim to analyse the data of the the nuclear accident happened in Fukushima Daiichi; March, 2011. Using the data we will determine the probab
-
-
-%panth tu lakhje aa
 \begin{figure}
     \centering
   \includegraphics[scale=0.5]{Metric.jpg}
@@ -104,34 +101,33 @@ We aim to analyse the data of the the nuclear accident happened in Fukushima Dai
      \item Application of Conditional Probability to reliability factor :What
 follows is a determination of the probability of system failure by the
 application of the conditional probability theorem. Figure below is the reference system. It consists of five components arranged on three "success paths. " So long as the components on at least one success path are operating, the system has not failed.\\ \\
-    Probability of system failure can be written as : \\\vspace{10mm}
-    \hspace{50mm}P(S)=P(S/A)P(A) + P(S/$\Bar{A}$)P($\Bar{A}$)\hspace{30mm} (1)\\
+    Probability of system failure can be written as : \\\vspace{3mm}
+    \hspace{50mm}P(S)=P(S/A)P(A) + P(S/$\Bar{A}$)P($\Bar{A}$)\cite{cite9}\hspace{30mm} (1)\\
     where\\\vspace{2mm}
     \hspace{15mm}P(S)=Probability of system failure\\\vspace{2mm}
     \hspace{15mm}P(A)=Probability that component A is working (not failed)\\\vspace{2mm}
     \hspace{15mm}P(S/A)=Probability of system failure, given component A has not failed\\\vspace{2mm}
-    Probability that a component is working is determined by its failure density function. For now derivation is beyond our scope.We will assume the following equation and move ahead. 
+    Probability that a component is working is determined by its failure density function. For now, the derivation is beyond our scope.We will assume the following equation and move ahead. 
     $$P(\Bar{A})=\int_{0}^{t}f_{A}(t)dt \hspace{30mm} (2)$$
-    % \hspace{80mm} (2) \\
     and probability of no failure is \\ \vspace{1mm}
-    \hspace{15mm}P($\bar{A}$)=1-P(A)\hspace{30mm} (3)\\
-    where,\\ \vspace{2mm}
+    \hspace{15mm}P($\bar{A}$)=1-P(A) \\
+    where,\\ \vspace{1mm}
     \hspace{15mm}$f_{A}(t)$ = failure density function for component A\\
     P(S/A) and P(S/$\bar{A}$) can be calculated by  a stepwise application of the conditional probability theorem to the system shown in Figure.\\ \\
     \textbf{If A has not failed, the system can fail only if components B, C, and D or D or E also fail.}\\\vspace{5mm}
-    \hspace{15mm}P(S/A) = P(S/A, B) P(B) + P(S/A,$\Bar{B}$) P($\Bar{B}$)\hspace{30mm} (4) \\
+    \hspace{15mm}P(S/A) = P(S/A, B) P(B) + P(S/A,$\Bar{B}$) P($\Bar{B}$) \\
     Since the system will not fail if both A and B are operating then \\\vspace{5mm}
 \hspace{15mm}P(S/A, B) = 0 \\ \vspace{5mm}
 \hspace{15mm}$\therefore$  P(S/A) =  P(S/A,$\Bar{B}$) P($\Bar{B}$) \\
 The probability of system failure given that B has failed is evaluated
 as:\\ \vspace{5mm}
-\hspace{15mm}P(S/A, B) = P(S/A, $\Bar{B}$, C) P(C) + P(S/A, $\Bar{B}$ , $\Bar{C}$) P( $\Bar{C}$).\hspace{30mm}(5) \\ 
+\hspace{15mm}P(S/A, B) = P(S/A, $\Bar{B}$, C) P(C) + P(S/A, $\Bar{B}$ , $\Bar{C}$) P( $\Bar{C}$).\hspace{30mm}(2) \\ 
 The first term on the right is zero since the system cannot fail if C
-has not failed. Equation (5) becomes \\ \vspace{5mm}
+has not failed. Equation (2) becomes \\ \vspace{5mm}
 \hspace{15mm}P(S/A, $\Bar{B}$) =  P(S/A, $\Bar{B}$ , $\Bar{C}$) P( $\Bar{C}$)\\
 The probability of system failure given that C has failed is evaluated
 as:\\ \vspace{5mm}
-\hspace{15mm}P(S/A,$\Bar{B}$,$\Bar{B}$) = P(S/A,$\Bar{B}$,$\Bar{B}$,D) P(D) + P(S/A,$\Bar{B}$,$\Bar{C}$,$\Bar{D}$) P($\Bar{B}$). \hspace{30mm} (6) \\
+\hspace{15mm}P(S/A,$\Bar{B}$,$\Bar{B}$) = P(S/A,$\Bar{B}$,$\Bar{B}$,D) P(D) + P(S/A,$\Bar{B}$,$\Bar{C}$,$\Bar{D}$) P($\Bar{B}$).  \\
 We know if that B,C,D fails then the entire system fails. \\
 \\ \vspace{2mm}
 \hspace{15mm}$\therefore$ P(S/A,$\Bar{B}$,$\Bar{C}$,$\Bar{D}$)=1 \\
@@ -140,20 +136,12 @@ Similarly , calculating for E,\\ \vspace{5mm}
 
 P(S/$\Bar{A}$) can be calculated in the above fashion and it boils down to : \\ \vspace{5mm}
 \hspace{15mm}P(S/$\Bar{A}$) - [ 1-P(E) P(D)] [l-P(C)]\\\vspace{5mm}
-System failure probability is thus given by :\\\vspace{2mm}
-\hspace{15mm} \textbf{P(S) = [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]}\\
-\\
-$$
-\begin{*align}
-
-\text{P(S) & = [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]}\\
-            &= [1-(0.139 \times 10^{-3})(0.699 \times 10^{-2})][1-(0.139 \times 10^{-1})][1-(0.349 \times 10^{-3})(0.139 \times 10^{-1})]\\
-            &=0.99999902839 \times 0.9861 \times 0.9999951489
-\end{*align}
-$$
-
-
-    
+System failure probability is thus given by :\\
+\textbf{\begin{align*}
+     P(S) &= [1-P(E)P(D)] [1-P(C)][1-P(A)P(B)]\\
+                  &= 0.139 \times 10^{-3} \times 0.699 \times 10^{-1} \times 0.394 \times 10^{-1}\\
+                  &=0.03828 \times 10^{-5}
+\end{align*}}
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{System.jpg}
@@ -161,8 +149,8 @@ $$
 \end{figure}
     \newpage
     \item Distribution of tsunami events triggered by seismic events at a global scale:\\ 
-    To describe the earthquake sizes in the target region,a truncated Gutenberg–Richter relationship is adopted:(cite) %https://www.frontiersin.org/articles/10.3389/fbuil.2016.00025/full#B31\\
-    $$G(M)=\frac{1-10^{-b(M-M_{min})}}{1-10^{-b(M_{max}-M_{min})}}$$
+    To describe the earthquake sizes in the target region,a truncated Gutenberg–Richter relationship\cite{cite8} is adopted: \\
+    $$G(M)=\frac{1-10^{-b(M-M_{min})}}{1-10^{-b(M_{max}-M_{min})}}$$ \cite{cite2}
     where Mmin and Mmax are the minimum and maximum moment magnitudes, respectively.
     For the simulation, it is convenient to convert the continuous distribution of magnitudes into a discrete set of values ($M_{min}$, …, Mi, …, $M_{max}$), assuming that they are the only possible magnitudes; such probabilities are computed as follows:\\
     \begin{center}
@@ -170,16 +158,12 @@ $$
     \end{center}
     
 where $\Delta M$ is the discretization interval. 
-For the analyses, $M_{min}$ and $M_{max}$ are set to 7.375 and 9.125, and a discretization interval of 0.25 is adopted. This means that seven central magnitude values, i.e., 7.5, 7.75, 8.0, 8.25, 8.5, 8.75, and 9.0, are considered to calculate the corresponding conditional probabilities as in the above equation. The minimum magnitude value is chosen, since small-to-moderate earthquakes rarely generate significant tsunamis, and their contributions to the tsunami hazard are negligible. For the Tohoku case study, a b-value equal to 0.9 is adopted(cite2)\\ %https://www.frontiersin.org/articles/10.3389/fbuil.2016.00025/full. 
-\\ %https://www3.nhk.or.jp/nhkworld/en/news/backstories/169/
-% https://earthquake.usgs.gov/earthquakes/search/
-Once the magnitude interval is selected and the major source area containing all possible rupture scenarios is defined, the mean annual rate of occurrence of earthquakes with magnitudes greater than or equal to 7.375 falling in that area can be calculated. Using G-R model with Poisson process for total area,\\
-%https://www3.nhk.or.jp/nhkworld/en/news/backstories/169/
-Pr(Occurrence of earthquake($>$6.0 $M_{w}$) in Fukushima(70 mile radius) in one) =$\frac{31}{15,798}$  %https://earthquake.usgs.gov/earthquakes/search/  
-%https://en.wikipedia.org/wiki/List_of_earthquakes_in_2019
+For the analyses, $M_{min}$ and $M_{max}$ are set to 7.375 and 9.125, and a discretization interval of 0.25 is adopted. This means that seven central magnitude values, i.e., 7.5, 7.75, 8.0, 8.25, 8.5, 8.75, and 9.0, are considered to calculate the corresponding conditional probabilities as in the above equation. The minimum magnitude value is chosen, since small-to-moderate earthquakes rarely generate significant tsunamis, and their contributions to the tsunami hazard are negligible. For the Tohoku case study, a b-value equal to 0.9 is adopted\cite{cite5}\\  
+
+Once the magnitude interval is selected and the major source area containing all possible rupture scenarios is defined, the mean annual rate of occurrence of earthquakes with magnitudes greater than or equal to 7.375 falling in that area can be calculated\cite{cite7}. Using G-R model with Poisson process for total area\cite{cite3} ,\\
+
+Pr(Occurrence of earthquake($>$6.0 $M_{w}$) in Fukushima(70 mile radius) in one) =$\frac{31}{15,798}$  \cite{cite6}
 \\
-\\
-%https://www.frontiersin.org/files/Articles/222571/fbuil-02-00025-HTML/image_m/fbuil-02-00025-g003.jpg   -- add D graph
 
  \item Radiation leak :\\
     There are three kinds of leak possible from a nuclear reactor, 1) Fast Neutron Leakage, 2) Thermal Neutron Leakage, 3) Gamma Ray Leakage which are equally hazardous. There are many factors that contribute to these leakage like Migration Length, Geometric Bulking, Incident Energy of Neutrons etc. 
@@ -288,27 +272,26 @@ Students are advised to share the new derivations with results in correlation wi
 
 \section{ Contribution of team members}
 \subsection{Technical contribution of all team members }
-Enlist the technical contribution of members in the table. Redefine the tasks (e.g Task-1 as simulation of fig.1 and so on)
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-Tasks  & Team member 1 & Team member 2 & Team member 3 & Team member 4 & Team member 5 \\ \hline
-Task-1 &               &               &               &               &               \\ \hline
-Task-2 &               &               &               &               &               \\ \hline
-Task-3 &               &               &               &               &               \\ \hline
+Tasks              & Prachee       & Panth         & Dhruvil \\ \hline
+Dataset collection &               &               &         \\ \hline
+Code debugging and writing     &               &               &         \\ \hline
+Simulating results &               &               &         \\ \hline
 \end{tabular}
 \end{table}
 \subsection{Non-Technical contribution of all team members }
 Enlist the non-technical contribution of members in the table. Redefine the tasks (e.g Task-1 as report writing etc.)
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-Tasks  & Team member 1 & Team member 2 & Team member 3 & Team member 4 & Team member 5 \\ \hline
-Task-1 &               &               &               &               &               \\ \hline
-Task-2 &               &               &               &               &               \\ \hline
-Task-3 &               &               &               &               &               \\ \hline
+Tasks  & Prachee       & Panth         & Dhruvil \\ \hline
+Report writing &               &               &               \\ \hline
+Deriving equations &               &               &    \\ \hline
+Macro/micro analysis&               &               &               \\ \hline
 \end{tabular}
 \end{table}
 
@@ -333,5 +316,4 @@ This section provides the submission checklist for smooth and efficient submissi
 
 \bibliographystyle{IEEEtran}
 \bibliography{ref.bib}
-
 \end{document}
