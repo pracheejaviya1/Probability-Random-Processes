@@ -70,8 +70,8 @@
 Nuclear Energy, by witnessing the gradual depletion of natural resources, "probably" will become the next primary source of energy in the near future.
 Compared to other fuels, nuclear power costs relatively low (eradicating construction costs) and the likelihood of an accident occurring is also low, but when it does, it makes a huge dent in economic and environmental fabric ;a loss costing in billions(Fukushima Daiichi 11 Mar. 2011). The anomalies of the reaction are unpredictable and random which makes it difficult to track them.In today’s global energy environment, nuclear power plant managers need to consider many dimensions of risk in addition to nuclear safety-related risk.  In general we tend to overestimate any risk relating to rare, fearsome accidents. The purpose of this report is to provide an integrated framework for risk prediction as a tool to enhance the accuracy of predicting a major nuclear accident as well as risks associated with them, including core damage frequency. The reactions will be studied thoroughly in order to determine the output which contribute to a nuclear accident and what is the probability of an accident happening due to it . Things can go wrong in ways that we can not even foresee, we must collect data on all potential incidents that lead to the wrongdoing of a nuclear reactor thus creating a probabilistic model that provides a detailed risk analysis. Besides, who wouldn't want to get accurate answers to  universe's randomness?
 
-\subsection{Case Study}
-We aim to analyse the data of the the nuclear accident happened in Fukushima Daiichi; March, 2011. Using the data we will determine the probab
+\subsection{Problem statement}
+This paper explores several probabilistic models and time series analysis methods for predicting the risk of a nuclear accident by determining the contribution of an event to a faulty   . The goal is to study individual events and predict the occurrence of a major nuclear accident in an area.
 \begin{figure}
     \centering
   \includegraphics[scale=0.5]{Metric.jpg}
@@ -81,20 +81,15 @@ We aim to analyse the data of the the nuclear accident happened in Fukushima Dai
 
 
 \section{Data Acquisition }
-
+The special assignment is Data dependent. 
 \begin{itemize}
-    \item Is your Special Assignment Data Dependent? Yes.
-
-    \item \textbf{DD YOUR SECTION niche comment section ma example che}
-    If Yes then Define the data acquisition process with complete citation.
+    \item Datasets of nuclear power plants are confidential. So in order to calculate the probability, we have studied the existing data tables from the respective scientific papers\cite{cite9} which showed failure probability of various components and plugged those values in Joint Probability Theorem.
+    \item Data regarding tsunami study was acquired from various scientific papers and websites.Graphs with discrete data values(G-R model fitting) was produced by generating random numbers in a range and plotting them. Then Curve fitting was applied to get the data required. Various algorithms for aftershock/foreshock removal (data cleaning)\cite{cite14} were used.Some data was assumed by determining the pattern of the graphs.
 \end{itemize}
-%are Once accomplished,we can improve sensing performance based on  the knowledge of channel statistics. Further, for more realistic considerations we would extend the above setup to SIMO, MISO and MIMO system models. The performance metrics would be the statistical properties like idle/busy period durations, its mean, variance and Occupancy rate(or duty cycle) of Primary user (PU). The metric for spectrum sensing would be detection probability $(P_d).$ Also the estimation error varies as per sensing period$(T_s)$ and thus KS distance would be an additional metric to be taken into consideration.
-	%\vspace{8cm}
-\section {Probabilistic Model Used/ PRP Concept Used}
+\section {Probabilistic Model Used}
 \begin{itemize}
 
-\item Modeling of physical/real-time uncertain Problem, Study of any existing probability based models
-\large \textbf{Formulation}\\
+\item \large \textbf{Formulation}\\
 The purpose of a PTHA(Probabilistic Tsunami Hazard Analysis) is to find the probability that a certain tsunami hazard metric, such as maximum wave
 amplitude, is exceeded. The most basic outcome of such an analysis is typically expressed as a hazard curve,
 which shows exceedance level of the hazard metric as a function of probability, with the probability often
@@ -119,18 +114,11 @@ $$P(I(x)>I_{0},\Delta T)=1-e^{-\lambda(I(x)>I_{0})\Delta T}$$. The following fig
 \end{center}
 
 
-% \paragraph{}The formulation presented herein is aimed at developing the earthquake–tsunami hazard curves for a specific location. Let \textbf{IM} represent the intensity measures of interest, such as spectral acceleration $(S_{a})$, inundation height (h), flow velocity (v), flux momentum, and tsunami force. Assuming a Poissonian arrival time process, the probability to observe an earthquake–tsunami sequence having intensity measure values \textbf{IM} equal to or greater than the specific values \textbf{im} in t years is :
-% $$P(IM \geq im | t)=1-e^{-\lambda(IM \geq im )\cdot t}$$
-% where $\lambda$(IM ≥ im) is the mean annual rate at which the intensity measures IM will exceed specific values im at a given location. The rate $\lambda$(IM ≥ im) can be expressed as a filtered Poisson process :
-% $$\lambda(IM \geq im)=\lambda(M \geq M_{min})\cdot \int P(IM \geq im | \theta) \cdot S(\theta|M).f(M)dM$$
-% - $\lambda(M \geq M_{min})$ is the mean annual rate of occurrence of the seismic events with magnitudes greater than the minimum magnitude considered in the magnitude–frequency distribution.\\
-% - P(\textbf{IM} ≥ \textbf{IM}$\|\theta$) is the probability that the joint intensity measures \textbf{IM} will exceed prescribed values \textbf{im} at a given coastal location for a given set of source parameters $\theta$. \\
-% - S($\theta$|M) represents the scaling relationships (or prediction models) of the uncertain earthquake source parameters conditioned on the magnitude. \\
-% - f (M) is the magnitude–frequency distribution.\\
-% We will derive F(M) in the macro analysis below.\\
 
- \begin{itemize}
-    \item \textbf{Distribution of tsunami events triggered by seismic events at a global scale:}\\
+
+
+\item \textbf{Distribution of tsunami events triggered by seismic events at a global scale:}\\
+     Determining the likelihood of a disaster is a key component of any comprehensive hazard assessment. This is particularly true for tsunamis, even though most tsunami hazard assessments have in the past relied on scenario or deterministic type models. We discuss probabilistic tsunami hazard analysis (PTHA) from the standpoint of integrating computational methods with empirical analysis of past tsunami runup.
      Since tsunamis resulting from multiple seismic sources operating at different recurrence intervals can affect a given coast, the best probability model is one that is time-independent, such as a Poisson process built around an exponential distribution studied above.\\
       To describe the earthquake sizes in the target region(the term f(M)),a truncated Gutenberg–Richter relationship\cite{cite8} is adopted: \\
     $$G(M)=\frac{1-10^{-b(M-M_{min})}}{1-10^{-b(M_{max}-M_{min})}}$$ \cite{cite2}
@@ -162,6 +150,10 @@ What follows is a determination of the probability of system failure by the appl
     \hspace{15mm}P(S/A)=Probability of system failure, given component A has not failed\\\vspace{2mm}
     Probability that a component is working is determined by its failure density function. For now, the derivation is beyond our scope.We will assume the following equation and move ahead. 
     $$P(\Bar{A})=\int_{0}^{t}f_{A}(t)dt \hspace{30mm} (2)$$
+    $$f_{A}(t)=\beta \alpha t^{\beta-1} e^{-\alpha t^{\beta}}$$
+    $\beta$=Weibull shape parameter. If $\beta$ = 1, $f_{A}(t)$ becomes the exponential failure density function.\\
+    $\alpha$=Weibull scaling parameter. If $\beta$ = 1, a becomes
+the failure rate , $\lambda$ \\
     and probability of no failure is \\ \vspace{1mm}
     \hspace{15mm}P($\bar{A}$)=1-P(A) \\
     where,\\ \vspace{1mm}
@@ -250,14 +242,7 @@ System failure probability is thus given by :\\
             $$\sigma = \pi \Bar{\lambda}^2 \frac{\Gamma^2}{(E - E_r)^2 + (\frac{\Gamma}{2})^2}$$
             
             where $\Gamma$ = $\frac{\bar{h}}{\tau}$,$\tau$ is the half-life of the nuclei, $\Bar{\lambda}$ is the wavelength of the incident neutron and $E_r$ is the Resonance Energy. As we can see that, at Resonance Energy, the cross-section is maximized. The equation obtained above is known as the Breit-Wigner Formula which is a derived form of Cauchy-Lorentz Distribution and is derived from Quantum Theory of Radioactivity.
-            
-            
-                
     \end{itemize}
-    
-    
-   
- \end{itemize}
 \end{itemize}
 
 \section{Derivations/Algorithms}
@@ -291,13 +276,27 @@ System failure probability is thus given by :\\
 \begin{itemize}
     \item We already had the values of incident energy available from the ENDF database and corresponding value of $E_r$ and so we just had to calculate the value of Geometric terms because value of $\Gamma$ was known already because we already knew the half-life of 1st Meta-Stable Uranium Nuclei.
 \end{itemize}
-\subsection{Simulation Framework}
-\justify This paragraph must include the values of all controlling parameters set in you simulations, no. of montecarlo iterations, etc.
+%%\subsection{Simulation Framework}
+%%\justify This paragraph must include the values of all controlling parameters set in you simulations, no. of montecarlo iterations, etc.%%
 \subsection{Reproduced Figures}
 \begin{itemize}
-\item Used Tools (MATLAB, Python, R etc..)
+\item Tools used to Reproduce these figures are Python and its corresponding libraries of Numpy, Pandas, Matplotlib and Tensorflow.
 \item Reproduced Figure-1\\
-\includegraphics[scale = 0.6]{bwd.png} 
+\begin{figure}[htp] 
+    \centering
+    \subfloat{%
+        \includegraphics[width=0.5\textwidth]{bwd.png}%
+        \label{fig:a}%
+        }%
+    \hfill%
+    \subfloat{%
+        \includegraphics[width=0.5\textwidth]{bwd4.png}%
+        \label{fig:b}%
+        }%
+\end{figure}
+Curves plotted in red are the Actual Breit-Wigner Distributions plotted by feeding the values of Incident Energy in the Formula and the curves plotted in blue are the Experimental data obtained from ENDF database.\\ 
+The First figure is the plot of Excited Nuclei in the First Excited state and the Second Figure is the plot of the Excited Nuclei in any given state i.e, the nuclei can be either in first or second or third and so on excited states.\\
+We can see that the first figure has a maximum cross-section of 200 mb while in the second figure we can see that the maximum value of Cross-Section is about 8000 mb because it is a plot of all possible excited states or we can say that it is the addition of respective Cross-Sections of each excited state and hence it does not fall in line completely with the actual Breit-Wigner Curve while each corresponding excited state almost falls in line with actual Breit-Wigner Curve.
 
 % Insert two figures side by side in a same row. The left figure is first figure of your base article (You can crop this). Name this as Figure 1B (Base stands for base article). And the right figure should include the corresponding reproduced figure that you have generated (along with legends). Name this as Figure 1R (R stands for reproduce figure)
 % Describe the figure in detail(for e.g Figure 1B and 1R shows the plot of $P_d$ versus $P_f$) for different controlling parameters(eg. sample size) and derive the inference.
@@ -306,37 +305,35 @@ System failure probability is thus given by :\\
 \includegraphics[scale =0.6]{gr fitting.PNG}\\
 The above figure describes the plot of G-R relationship. The dataset includes only events where at least one of the magnitudes (Md, Mb or Mm) has reached the level of 2.0 and higher. Thus, we have computed the maximal magnitude of each event as the maximum of its three magnitudes (Md, Mb, and Mm).\\
 The ultimate goal of this study is to predict the maximum earthquake magnitude in a given area during the next year. Thus the feature vector can include any seismic indicator, which can be calculated at the end of the current year.\\
-The slope of the regression line fitting the curve of the log of the earthquake frequency versus magnitude (b value). This parameter is based on the Gutenberg-Richter inverse power law (Eq 1) and it can be calculated using Algorithm 2 from the last n events sorted in the order of their occurrence. The algorithm calls a standard Linear-Regression function, which implements the least squares linear regression method with the following input parameters:
+The slope of the regression line fitting the curve of the log of the earthquake frequency versus magnitude (b value). This parameter is based on the Gutenberg-Richter inverse power law and it can be calculated using an Algorithm\cite{cite14}  from the last n events sorted in the order of their occurrence. The algorithm calls a standard Linear-Regression function, which implements the least squares linear regression method with the following input parameters:
 
 n–the sample size (number of observations)\\
-
 Intercept– 0 if the equation intercept is be equal to zero and 1 otherwise\\
-
 y–n values of the dependent variable ($log_{10}(N(M))$in our case)\\
-
 x—n values of the independent variable (M in our case)\\
+\newpage
 \item Reproduced Figure-3\\
-\\
  \includegraphics[scale=0.5]{P(M).PNG} \includegraphics[scale=0.5]{plot_d.png}\\
- The above graph shows  Discrete probability mass based on the fitted Gutenberg–Richter relationship.\cite{14cite14}
+ The above graph shows  Discrete probability mass based on the fitted Gutenberg–Richter relationship.\cite{cite3}
 % Follow in the similar way as instructed above. Name the figures as Figure 2R and 2B. \\
 % Describe the figure in detail and derive the inference.
 \end{itemize}
 
-\subsection{New Work Done (Optional)}
+% \subsection{New Work Done (Optional)}
 
-\subsubsection{New Analysis}
+% \subsubsection{New Analysis}
 
-\subsubsection{New Coding / Algorithm}
+% \subsubsection{New Coding / Algorithm}
 
-\subsubsection{New Results}
+% \subsubsection{New Results}
 
-\subsubsection{New Inferences}
-\begin{itemize}
-    \item Describe:
-\end{itemize}
+% \subsubsection{New Inferences}
+% \begin{itemize}
+%     \item Describe:
+% \end{itemize}
 
-Students are advised to share the new derivations with results in correlation with the  reproduce results. Write clear inference for the new results. You are also advised to add new analysis along with the codes.
+% Students are advise
+% d to share the new derivations with results in correlation with the  reproduce results. Write clear inference for the new results. You are also advised to add new analysis along with the codes.
 
 
 \section{Inference Analysis/ Comparison}
