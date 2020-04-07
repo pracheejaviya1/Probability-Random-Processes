@@ -297,12 +297,30 @@ System failure probability is thus given by :\\
 \begin{itemize}
 \item Used Tools (MATLAB, Python, R etc..)
 \item Reproduced Figure-1\\
-Insert two figures side by side in a same row. The left figure is first figure of your base article (You can crop this). Name this as Figure 1B (Base stands for base article). And the right figure should include the corresponding reproduced figure that you have generated (along with legends). Name this as Figure 1R (R stands for reproduce figure)
-Describe the figure in detail(for e.g Figure 1B and 1R shows the plot of $P_d$ versus $P_f$) for different controlling parameters(eg. sample size) and derive the inference.
+\includegraphics[scale = 0.6]{bwd.png} 
 
+% Insert two figures side by side in a same row. The left figure is first figure of your base article (You can crop this). Name this as Figure 1B (Base stands for base article). And the right figure should include the corresponding reproduced figure that you have generated (along with legends). Name this as Figure 1R (R stands for reproduce figure)
+% Describe the figure in detail(for e.g Figure 1B and 1R shows the plot of $P_d$ versus $P_f$) for different controlling parameters(eg. sample size) and derive the inference.
+\newpage
 \item Reproduced Figure-2\\
-Follow in the similar way as instructed above. Name the figures as Figure 2R and 2B. \\
-Describe the figure in detail and derive the inference.
+\includegraphics[scale =0.6]{gr fitting.PNG}\\
+The above figure describes the plot of G-R relationship. The dataset includes only events where at least one of the magnitudes (Md, Mb or Mm) has reached the level of 2.0 and higher. Thus, we have computed the maximal magnitude of each event as the maximum of its three magnitudes (Md, Mb, and Mm).\\
+The ultimate goal of this study is to predict the maximum earthquake magnitude in a given area during the next year. Thus the feature vector can include any seismic indicator, which can be calculated at the end of the current year.\\
+The slope of the regression line fitting the curve of the log of the earthquake frequency versus magnitude (b value). This parameter is based on the Gutenberg-Richter inverse power law (Eq 1) and it can be calculated using Algorithm 2 from the last n events sorted in the order of their occurrence. The algorithm calls a standard Linear-Regression function, which implements the least squares linear regression method with the following input parameters:
+
+n–the sample size (number of observations)\\
+
+Intercept– 0 if the equation intercept is be equal to zero and 1 otherwise\\
+
+y–n values of the dependent variable ($log_{10}(N(M))$in our case)\\
+
+x—n values of the independent variable (M in our case)\\
+\item Reproduced Figure-3\\
+\\
+ \includegraphics[scale=0.5]{P(M).PNG} \includegraphics[scale=0.5]{plot_d.png}\\
+ The above graph shows  Discrete probability mass based on the fitted Gutenberg–Richter relationship.\cite{14cite14}
+% Follow in the similar way as instructed above. Name the figures as Figure 2R and 2B. \\
+% Describe the figure in detail and derive the inference.
 \end{itemize}
 
 \subsection{New Work Done (Optional)}
