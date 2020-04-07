@@ -85,12 +85,13 @@ The special assignment is Data dependent.
 \begin{itemize}
     \item Datasets of nuclear power plants are confidential. So in order to calculate the probability, we have studied the existing data tables from the respective scientific papers\cite{cite9} which showed failure probability of various components and plugged those values in Joint Probability Theorem.
     \item Data regarding tsunami study was acquired from various scientific papers and websites.Graphs with discrete data values(G-R model fitting) was produced by generating random numbers in a range and plotting them. Then Curve fitting was applied to get the data required. Various algorithms for aftershock/foreshock removal (data cleaning)\cite{cite14} were used.Some data was assumed by determining the pattern of the graphs.
+    \item The Data regarding the plots of Breit-Wigner Distribution of Incident Energy vs Cross Section has been acquired from IAEA's ENDF Database from the TENDL-2017 library\cite{cite15} and was plotted using Python.
 \end{itemize}
 \section {Probabilistic Model Used}
 \begin{itemize}
 
 \item \large \textbf{Formulation}\\
-The purpose of a PTHA(Probabilistic Tsunami Hazard Analysis) is to find the probability that a certain tsunami hazard metric, such as maximum wave
+\normalsize The purpose of a PTHA(Probabilistic Tsunami Hazard Analysis) is to find the probability that a certain tsunami hazard metric, such as maximum wave
 amplitude, is exceeded. The most basic outcome of such an analysis is typically expressed as a hazard curve,
 which shows exceedance level of the hazard metric as a function of probability, with the probability often
 expressed as a rate of exceedance per year.\\
@@ -197,7 +198,7 @@ System failure probability is thus given by :\\
 \normalsize    There are three kinds of leak possible from a nuclear reactor, 1) Fast Neutron Leakage, 2) Thermal Neutron Leakage, 3) Gamma Ray Leakage which are equally hazardous. There are many factors that contribute to these leakage like Migration Length, Geometric Bulking, Incident Energy of Neutrons etc. 
     
     \begin{itemize}
-        \item Fast Neutron Leakage :\\
+        \item \textbf{Fast Neutron Leakage :}\\
             Nuclear Fission process is a Nuclear Chain Reaction. After the Fission is completed, the end products obtained are fast moving neutrons with moderator nuclei which participates further in chain nuclear reaction. But these Fast Moving Neutrons are highly energetic and must be slowed down using a moderator like water or heavy water which absorbs some amount of energy and bring the neutron in the Thermal Range.\\
             \\
             But during this process of slowing down these fast moving neutrons leak out from the reactor boundaries and escape in the form of Neutron Radiation. The probability of Fast Neutron leakage is termed as Fast Non-Leakage Probability which is calculated as,
@@ -207,18 +208,19 @@ System failure probability is thus given by :\\
             The Fast Non-Leakage Probability can be derived from Fermi Age Theory, which is a Stochastic Process, the probability that a neutron will remain in a core and slow down to become a thermal neutron without being lost by fast leakage, is given by the equation,
             $$P_f = e^{-\tau B^2} = \frac{1}{1 + \tau B^2}$$
             
-            where, $\tau$ is Fermi Age of the neutron and B is geometric bulking factor which depends on the size and shape of reactor core and is higher for small cores and low for smaller cores. Hence it is obvious from this that fast neutron leakage is higher for smaller cores.\cite{cite10}\\
+            where, $\tau$ is Fermi Age of the neutron and B is geometric bulking factor which depends on the size and shape of reactor core and is higher for small cores and low for smaller cores. Hence it is obvious from this that fast neutron leakage is higher for smaller cores. The fast non-leakage probability is for large reactor cores about \textbf{0.92 – 0.98} and this value is minimally affected by operational changes except changes in the moderator temperature\cite{cite10}\\
             
-        \item Thermal Neutron Leakage :\\
+        \item \textbf{Thermal Neutron Leakage}:\\
             During Neutron Diffusion process, some thermal neutrons are leak out of the reactor core boundaries before they are absorbed by the moderator. Hence the Thermal Non-Leakage Probability is calculated as,
             $$P_t = \frac{n_TL}{n_T}$$
             where $n_TL$ = Total number of thermal neutrons leaked during diffusion process and $n_T$ = Total number of neutrons that reach thermal energy.\\
             \\
             The only parameter that influences this Non-Leakage probability is the moderator temperature. From Neutron Thermal Diffusion Theory it can be derived that a neutron will remain in the core is given by,
             $$P_t = \frac{1}{1 + L_d^2B^2}$$
-            where $L_d$ is the length of diffusion which is basically the thickness of Moderator and B is the geometric bulking factor.\cite{cite11}\\
+            where $L_d$ is the length of diffusion which is basically the thickness of Moderator and B is the geometric bulking factor. 
+            The thermal non-leakage probability is for large reactor cores about \textbf{0.95 – 0.98} and this value is minimally affected by operational changes except changes in the moderator temperature.\cite{cite11}\\
             
-        \item Total Non-Leakage Probability :\\
+        \item\textbf{ Total Non-Leakage Probability} :\\
             Fast Neutron Non-Leakage Probability ($P_f$) and Thermal Neutron Non-Leakage Probability ($P_t$) can be combined as one single term which shows us the total Non-Leakage Probability of Neutrons ($P_{NL}$) from the reactor core and can be expressed as,
             $$P_{NL} = \frac{1}{(1 + L_d^2B^2)}\cdot \frac{1}{(1 + \tau B^2)} $$
             $$P_{NL} = \frac{1}{1 + (\tau + L_d^2)B^2 + \tau L_d^2B^4}$$\\
@@ -229,7 +231,7 @@ System failure probability is thus given by :\\
             Since both the factors $P_f$ and $P_t$ are dependent on the moderator temperature, the total Non-Leakage Probability is dependent on Moderator Temperature too and is sensitive to the changes in Moderator Temperature. Increase in Moderator Temperature causes an decrease in $P_{NL}$ which means more neutrons leak out of the reactor.\cite{cite13}\\
             \\
             
-        \item Gamma Ray Probability :\\
+        \item\textbf{ Gamma Ray Probability :}\\
             During the process of Thermalization of fast moving neutrons, neutrons may collide with moderator as well as fuel nuclei. Sometimes the reactor fuel might exhibit Resonance Behaviour between fast and thermal neutron range. During the process of Thermalization there is a chance that these intermediate energy neutrons might get Captured by the nuclei and the nuclei might go into an excited state.\\
             \\
             The probability of the neutron to escape this resonance is termed as Resonance Escape Probability which has an average value of around 0.75.\cite{cite12}\\
@@ -249,7 +251,7 @@ System failure probability is thus given by :\\
 \begin{itemize}
     \item Obtaining the Breit-Wigner Distribution :-
     \begin{itemize}
-        \item Naturally what happens is during a resonance is that there is an intermediate state $N_i^*$ which follows to a final state $N_f$ through emission of gamma rays.
+        \item Naturally,during  resonance there is an intermediate state $N_i^*$ which follows to a final state $N_f$ through emission of gamma rays.
         $$N_i^* \xrightarrow{} N_f + \gamma$$
         $$\Psi^{N_i^*} \xrightarrow{} \Psi^{N_f}\Psi^\gamma$$\\
         We start by assuming that the final nuclear state is given by,
@@ -267,7 +269,7 @@ System failure probability is thus given by :\\
         where $\Gamma = \frac{\hbar}{\tau}$. But this term obtained is the Probability Density of Energy and hence when the reaction is dominated by narrow resonances, its Cross-Section will be given by,
         $$\sigma = \pi \Bar{\lambda}^2 \frac{\Gamma^2}{(E - E_r)^2 + (\frac{\Gamma}{2})^2}$$
         
-        \item Hence the controlling parameter for the Breit-Wigner Distribution for obtaining Cross-Section w.r.t to Incident Energy is $\Gamma$ which differs from element to element as it is dependent on the half-life of the respective elements ($\tau$). $\Gamma$ is responsible for the width of the curve and hence for narrow resonances, the value of $\Gamma$ is small which implies that the element is long-lived and will react to the incoming particles having definite energies near $E_r$ which is the mean of the distribution which corresponds to the maximum value of Cross-Section.
+        Hence the controlling parameter for the Breit-Wigner Distribution for obtaining Cross-Section w.r.t to Incident Energy is $\Gamma$ which differs from element to element as it is dependent on the half-life of the respective elements ($\tau$). $\Gamma$ is responsible for the width of the curve and hence for narrow resonances, the value of $\Gamma$ is small which implies that the element is long-lived and will react to the incoming particles having definite energies near $E_r$ which is the mean of the distribution which corresponds to the maximum value of Cross-Section.
         
          
     \end{itemize}
@@ -302,47 +304,30 @@ We can see that the first figure has a maximum cross-section of 200 mb while in 
 % Describe the figure in detail(for e.g Figure 1B and 1R shows the plot of $P_d$ versus $P_f$) for different controlling parameters(eg. sample size) and derive the inference.
 \newpage
 \item Reproduced Figure-2\\
-\includegraphics[scale =0.6]{gr fitting.PNG}\\
+\includegraphics[scale =0.6]{gr fitting.PNG} \includegraphics[scale=0.6]{repgr.png}
 The above figure describes the plot of G-R relationship. The dataset includes only events where at least one of the magnitudes (Md, Mb or Mm) has reached the level of 2.0 and higher. Thus, we have computed the maximal magnitude of each event as the maximum of its three magnitudes (Md, Mb, and Mm).\\
 The ultimate goal of this study is to predict the maximum earthquake magnitude in a given area during the next year. Thus the feature vector can include any seismic indicator, which can be calculated at the end of the current year.\\
-The slope of the regression line fitting the curve of the log of the earthquake frequency versus magnitude (b value). This parameter is based on the Gutenberg-Richter inverse power law and it can be calculated using an Algorithm\cite{cite14}  from the last n events sorted in the order of their occurrence. The algorithm calls a standard Linear-Regression function, which implements the least squares linear regression method with the following input parameters:
-
+The slope of the regression line fitting the curve of the log of the earthquake frequency versus magnitude (b value$\approx$ 1). This parameter is based on the Gutenberg-Richter inverse power law and it is calculated through experimental observations. For G-R curve fitting,the algorithm calls a standard Linear-Regression function, which implements the least squares linear regression method with the following input parameters:
 n–the sample size (number of observations)\\
 Intercept– 0 if the equation intercept is be equal to zero and 1 otherwise\\
 y–n values of the dependent variable ($log_{10}(N(M))$in our case)\\
 x—n values of the independent variable (M in our case)\\
 \newpage
 \item Reproduced Figure-3\\
- \includegraphics[scale=0.5]{P(M).PNG} \includegraphics[scale=0.5]{plot_d.png}\\
+ \includegraphics[scale=0.5]{P(M).PNG} \includegraphics[scale=0.5]{plot_d.png}\\ \\
  The above graph shows  Discrete probability mass based on the fitted Gutenberg–Richter relationship.\cite{cite3}
 % Follow in the similar way as instructed above. Name the figures as Figure 2R and 2B. \\
 % Describe the figure in detail and derive the inference.
 \end{itemize}
-
-% \subsection{New Work Done (Optional)}
-
-% \subsubsection{New Analysis}
-
-% \subsubsection{New Coding / Algorithm}
-
-% \subsubsection{New Results}
-
-% \subsubsection{New Inferences}
-% \begin{itemize}
-%     \item Describe:
-% \end{itemize}
-
-% Students are advise
-% d to share the new derivations with results in correlation with the  reproduce results. Write clear inference for the new results. You are also advised to add new analysis along with the codes.
-
-
+\newpage
 \section{Inference Analysis/ Comparison}
 
 \begin{itemize}
 
-\item Derive inference-1 from the work.
+\item The work done above merely states the individual probability of an event occurring, given some specific conditions. But these small events contribute to a major nuclear accident. Due to limitations of the report we have only studied 3 major factors-Earthquakes and tsunamis, nuclear power plant failure and molecular misbehaviour.A major nuclear accident can take place when a chain of these events occur i.e. an earthquake giving rise to a wild tsunami which in-turns shuts down nuclear cooling system(there are over a hundred other paths to fail but we wont be discussing them here) and lastly the molecular interaction goes haywire because of improper cooling inside the reactor. Such chain of events decides whether a nuclear accident will take place or not.
 
-\item Derive inference-2 from the work.
+\item After interpreting the graphs and building models to analyse the risk, we can say, the probability that an accident takes place is the product of the probabilities of individual events.\\
+$\therefore P(Hazard)=0.03828 \times 10^{-5}\cdot 0.96 \cdot 0.001962 = 7.2 \times 10^{-10}$
 \end{itemize}
 
 \section{ Contribution of team members}
@@ -352,9 +337,9 @@ x—n values of the independent variable (M in our case)\\
 \begin{tabular}{|l|l|l|l|}
 \hline
 Tasks              & Prachee       & Panth         & Dhruvil \\ \hline
-Dataset collection &               &               &         \\ \hline
-Code debugging and writing     &               &               &         \\ \hline
-Simulating results &               &               &         \\ \hline
+Dataset collection &       $\checkmark$          &    $\checkmark$            &     $\checkmark$     \\ \hline
+Code debugging and writing     &      $\checkmark$          &               &    $\checkmark$      \\ \hline
+Simulating results &   $\checkmark$            &      $\checkmark$          &       $\checkmark$   \\ \hline
 \end{tabular}
 \end{table}
 \subsection{Non-Technical contribution of all team members }
@@ -364,30 +349,11 @@ Enlist the non-technical contribution of members in the table. Redefine the task
 \begin{tabular}{|l|l|l|l|}
 \hline
 Tasks  & Prachee       & Panth         & Dhruvil \\ \hline
-Report writing &               &               &               \\ \hline
-Deriving equations &               &               &    \\ \hline
-Macro/micro analysis&               &               &               \\ \hline
+Report writing &     $\checkmark$          &      $\checkmark$          &               \\ \hline
+Deriving equations &           &     $\checkmark$           &    \\ \hline
+Macro/micro analysis&            $\checkmark$    &         $\checkmark$       &               \\ \hline
 \end{tabular}
 \end{table}
-
-
-\section{Submission checklist for uploading on Google Drive}
-This section provides the submission checklist for smooth and efficient submission process.  (This is for your reference and please remove this while writing your report).
-\begin{itemize}
-
-\item Soft copy of this project Report
-\item Soft copy of Abstract
-\item Soft copy of Concept Map 1 and 2
-\item Soft copy of base article
-%\item Hard copy of \textbf{turnitin report} (It should be less than 15 percent after excluding the bibliography)
-\item Soft copy of analysis (hand written)
-%\item Softcopy of above four documents in pan-drive/hard drive.
-\item Folder of matlab codes (with proper naming)
-\item Folder of reproduced results in .fig and .jpg format
-%\item .pdf Scanned copy of analysis (handwritten)
-\item latex (.tex) file of the project report.
-\end{itemize}
-%\vspace{0.5cm}
 
 \bibliographystyle{IEEEtran}
 \bibliography{ref.bib}
