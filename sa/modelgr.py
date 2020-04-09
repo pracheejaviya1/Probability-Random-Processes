@@ -20,6 +20,8 @@ for i in range(20):
     y.append(finy)
 print(y)
 
+# the lists are populated with the data we found from getdata.py
+
 ly = [0.009247139, 0.00812323423, 0.00673226, 0.0056335, 0.00864165, 0.0062324,
       0.008547088125592527,
       0.008928069775731717,
@@ -204,10 +206,6 @@ y_values = [point1[1], point2[1]]
 
 plt.plot(x_values, y_values, color='red')
 
-# def mouse_move(event):
-#     x, y = event.xdata, event.ydata
-#     print(x, y)
-# plt.connect('motion_notify_event', mouse_move)
 
 plt.scatter(x, y, color='blue')
 plt.scatter(nlx, nly, color='blue')
